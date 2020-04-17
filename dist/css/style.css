@@ -1,0 +1,394 @@
+/* ORIGINAL CODING SEE CODING FOR CSS GRID VERSION BELOW
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } 
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #655A56;
+  background-image: linear-gradient(to right bottom, rgb(173, 172, 169), rgb(58, 54, 53));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 2 * 4vw); }
+
+
+
+.search__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results__container {
+  width: 25%;
+  font-size: 14px;
+  border-right: 1px solid #fff;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.results__link {
+  display: flex;
+  align-items: center;
+  /*border-right: 1px solid #fff;
+  text-decoration: none;
+  padding: 1.5rem 3rem;
+  transition: all .3s;
+}
+
+.results__link:hover,
+.likes__link:hover {
+  background-color: #F9F5F3;
+  transform: translateY(-2px); }
+
+.state__name {
+  margin-bottom: 0;
+}
+
+.cases {
+  margin-top: 0;
+}
+
+
+
+END ORIGINAL CODING */
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  background: url('../img/nasa-us.jpg');
+  background-position: center;
+  background-repeat: 0;
+  background-size: cover;
+  }
+
+/* ScrollBar code */
+
+html {
+  --scrollbarBG: #CFD8DC;
+  --thumbBG: #90A4AE;
+}
+
+*::-webkit-scrollbar {
+  width: 11px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+/* End ScrollBar code */
+
+
+.main-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 50px 1fr 9fr 1fr;
+ /* background-color: #2196F3;*/
+  /*
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  */
+  width: 95vw;
+  margin: auto;
+  margin-top: 0;
+  height: 100vh;
+  max-width: 1200px;
+}
+
+.grid-item {
+  /*background: #383436;*/
+  text-align: center;
+  
+}
+
+header {
+  grid-area: 1/1/2/3;
+  background: rgba(255,0,0,0.5);
+  color: black;
+}
+
+.liked {
+  grid-area: 1/3/2/4;
+}
+
+.us-numbers, .world-numbers {
+  background: black;
+}
+
+.select-county-and-state-name {
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.state-number-info {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.state-counties-title {
+  font-size: 24px;
+}
+
+.list {
+  display: grid;
+  align-content: start;
+  grid-row-gap: 1px;
+  overflow: auto;
+}
+
+.insert-state, .insert-world-country {
+  height: 75px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background: #383436;
+  text-align: left;
+  cursor: pointer;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  
+  /**********************************/
+  /* Testing Animation Code here*/
+
+  transform: translateY(500px);
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  /******************************/
+  
+}
+
+
+/******************************/
+/* Testing Animation Code here */
+
+
+
+
+@keyframes slideIn {
+0% {transform: translateY(500px)}
+100% {transform: translateY(0px)}
+}
+
+
+/******************************/
+
+
+
+
+
+
+
+.insert-state h1, .insert-world-country h1 {
+  padding-left: 10px;
+}
+
+.insert-state:hover {
+  background: rgba(255,0,0,0.5);
+  
+}
+
+.insert-state a, .insert-world-country a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:link {
+  color: #fff;
+}
+a:visited {
+  background-color: rgba(255,0,0,0.5);
+}
+
+.insert-world-country {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.country-stats {
+  display: flex;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.country-deaths {
+  padding-left: 10px;
+}
+
+
+
+
+.county-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*grid-template-rows: 150px;*/
+  /*
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  */
+  align-content: start;
+  overflow: auto;
+  
+  
+  background: url(../img/cdc-virus-2.png);
+  background-size: cover;
+  background-position: center;
+
+  /*
+  background-image: url('../img/nasa.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  */
+
+}
+
+.insert-county {
+  height: 150px;
+  background: rgba(56, 52, 54, .9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+    /**************************/
+  /*Animation */
+  transform: translateY(800px);
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  /*************************/
+}
+
+.insert-county:hover {
+  transform: translateY(-2px);
+  background: grey;
+}
+
+
+footer {
+  grid-area: 4/1/6/4;
+  background: rgba(0,4,29, .5);
+}
+
+.my-info {
+  margin-top: 30px;
+}
+
+.slideOut {
+  animation-name: slideOut;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes slideOut{
+  0% {
+    transform: translateY(0px)
+  }
+  100% {
+    transform: translateY(800px)
+  }
+}
+
+
+
+.loader {
+  height: 100%;
+  display: flex;
+  place-items: center;
+}
+
+.spin {
+  height: 60px;
+  width: 60px;
+  color: red;
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.test {
+  display: flex;
+  place-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  background: white;
+}
+.test svg {
+
+  width: 30px;
+  height: 30px;
+  fill: white;
+  stroke: blue;
+  stroke-width: 20px;
+}
+
+
+.liked svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  stroke: blue;
+  stroke-width: 20px;;
+}
