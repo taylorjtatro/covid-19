@@ -27,7 +27,8 @@ export const elements = {
     usDeaths: document.querySelector('.us-deaths'),
     worldCountries: document.querySelector('.world-countries-container'),
     worldConfirmed: document.querySelector('.world-confirmed'),
-    worldDeaths: document.querySelector('.world-deaths')
+    worldDeaths: document.querySelector('.world-deaths'),
+    countyLikesStar: document.querySelector('.select-like')
 
 }
 

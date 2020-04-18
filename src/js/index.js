@@ -77,6 +77,7 @@ import County from './models/County';
 import * as countyView from './views/countyView';
 import LoadWorld from './models/LoadWorld';
 import * as loadWorldView from './views/loadWorldView';
+import Likes from './models/Likes';
 
 //Global State of the App
 const state = {};
@@ -232,6 +233,10 @@ renderLoader(elements.countyAndStateInfo);
 
 
 
+
+
+
+
 //ok what is the best way to get our state name when they click on it.
 
  //window.addEventListener('hashchange', controlCounty);
@@ -240,46 +245,54 @@ renderLoader(elements.countyAndStateInfo);
  ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlCounty));
 
 
+/*********
+ * Likes Controller
+ */
+
+const controlLike = (countyId) => {
+    if (!state.likes) state.likes = new Likes();
+    const currentId = countyId;
+    console.log(countyId);
+
+
+    //user has not yet liked current recipe
+    if (!state.likes.isLiked(currentId)) {
+        //add like to state
+        const newLike = state.likes.addLike(currentId, state.county.province, state.county.countyInfo[currentId].county, state.county.countyInfo[currentId].latest.confirmed, state.county.countyInfo[currentId].latest.deaths)
+        //toggle the like button
+
+        //add like to UI list
+        console.log(state.likes)
+    } else {
+        //remove like to state
+        state.likes.deleteLike(currentId);
+        //toggle the like button
+
+        //remove like to UI list
+        console.log(state.likes)
+    }
+
+
+}
+
+
+
+ document.querySelector('.county-container').addEventListener('click', e => {
+     let id;
+    if (e.target.matches('.fa-star')) {
+
+       
+       
+        id = e.target.id;
+
+
+        controlLike(id);
+    }
+
+    
+})
 
 window.state = state;
-/*
- const addComma = () => {
-    let num = 100000;
-    //console.log(num);
-    let numString = num.toString();
-    console.log(`numstring ${numString}`)
-    //console.log(numString.length);
-    
-    let stringLength = numString.length;
-    console.log(stringLength);
-    
-    if (stringLength <= 3) {
-      console.log(stringLength);
-    } else {
-
-        let numberOfCommas = Math.floor(stringLength/3);
-        console.log(numberOfCommas)
-        numString.slice(stringLength - 2)
-
-//if string lenght / 100 = integet need comma here and here
-//if string length / 1000 need comma here and here
-    }  
- }
-
-    //position divided by 100
-    //divided by 1000
-    //divided by 10,0000
-    //divided by 100,000 etc. 
-    //could go string.length and then slice at the index of 4 8 12 16
-    /*
-    var a = "I want apple";
-  var b = " an";
-  var position = 6;
-  var output = [a.slice(0, position), b, a.slice(position)].join('');
-  console.log(output);
-          */     
-               
-//addComma();
 
 
 
