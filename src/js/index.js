@@ -119,6 +119,8 @@ const controlSearch = async () => {
 
 }
 
+state.likes = new Likes();
+
 //Think that we should have an onload that then our "searchView" will really initally be like the startUp view which will get the data initially 
 
 window.addEventListener('load', controlSearch);
