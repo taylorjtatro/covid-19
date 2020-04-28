@@ -1,7 +1,9 @@
 import elements from './base';
 
+
 export const toggleLikeBtn = (id, isLiked) => {
     //boolean here and we will just say true or false in our index.js
+        //the id is so that we can 
     const iconString = isLiked ? `fas fa-star ${id}` : `far fa-star ${id}`;
 
 
