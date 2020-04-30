@@ -135,14 +135,12 @@ html {
 }
 
 header {
-  grid-area: 1/1/2/3;
+  grid-area: 1/1/2/4;
   background: rgba(255,0,0,0.5);
   color: black;
 }
 
-.liked {
-  grid-area: 1/3/2/4;
-}
+
 
 .us-numbers, .world-numbers {
   background: black;
@@ -365,39 +363,3 @@ footer {
   }
 }
 
-.select-like {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 40px;
-  width: 40px;
-  
-}
-
-.select-like .fa-star {
-  color: rgba(255,0,0,0.5);
-  font-size: 35px;
-}
-
-.select-like:hover {
-  transform: scale(1.27);
-  color: red
-}
-
-
-.liked svg {
-  width: 30px;
-  height: 30px;
-  fill: white;
-  stroke: blue;
-  stroke-width: 20px;
-  transition: 2s;
-  color: rgba(255,0,0,0.0)
-}
-
-.liked svg:hover {
-  color: red;
-}

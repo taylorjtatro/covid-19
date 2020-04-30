@@ -4,9 +4,6 @@ import { elements, addComma } from './base';
 const prepareRenderCounties = (arr, i) => {
     let item = `
         <div class="insert-county">
-            <div class="select-like">
-                <i class="far fa-star div-${i}" id="${i}"></i>
-            </div>
             <h1>${arr.county}</h1>
             <h2>Confirmed: ${addComma(arr.latest.confirmed)}</h2>
             <h2>Deaths: ${addComma(arr.latest.deaths)}</h2>

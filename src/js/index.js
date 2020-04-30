@@ -77,8 +77,7 @@ import County from './models/County';
 import * as countyView from './views/countyView';
 import LoadWorld from './models/LoadWorld';
 import * as loadWorldView from './views/loadWorldView';
-import Likes from './models/Likes';
-import * as likesView from './views/likesView';
+
 
 //Global State of the App
 const state = {};
@@ -246,54 +245,7 @@ renderLoader(elements.countyAndStateInfo);
  ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlCounty));
 
 
-/*********
- * Likes Controller
- */
 
-const controlLike = (countyId) => {
-    if (!state.likes) state.likes = new Likes();
-    const currentId = countyId;
-    const heartSelector = `div-${currentId}`;
-    console.log(countyId);
-
-
-    //user has not yet liked current recipe
-    if (!state.likes.isLiked(currentId)) {
-        //add like to state
-        const newLike = state.likes.addLike(currentId, state.county.province, state.county.countyInfo[currentId].county, state.county.countyInfo[currentId].latest.confirmed, state.county.countyInfo[currentId].latest.deaths)
-        //toggle the like button
-        likesView.toggleLikeBtn(heartSelector, true);
-
-        //add like to UI list
-        console.log(state.likes)
-    } else {
-        //remove like to state
-        state.likes.deleteLike(currentId);
-        //toggle the like button
-        likesView.toggleLikeBtn(heartSelector, false);
-        //remove like to UI list
-        console.log(state.likes)
-    }
-
-
-}
-
-
-
- document.querySelector('.county-container').addEventListener('click', e => {
-     let id;
-    if (e.target.matches('.fa-star')) {
-
-       
-       
-        id = e.target.id;
-
-
-        controlLike(id);
-    }
-
-    
-})
 
 window.state = state;
 
