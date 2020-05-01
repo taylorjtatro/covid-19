@@ -52,19 +52,19 @@ export default class OnLoad {
 
       
 
-      this.testing123 = statesList;
+      this.statesArr = statesList;
 
         return statesList;
     }
 
 
 findNoProvince() {
-    this.index = this.testing123.findIndex(el2 => el2.province === '');
+    this.index = this.statesArr.findIndex(el2 => el2.province === '');
     //https://stackoverflow.com/questions/15997879/get-the-index-of-the-object-inside-an-array-matching-a-condition
 }
 
 removeNoProvince() {
-    this.testing123.splice(this.index, 1);
+    this.statesArr.splice(this.index, 1);
 
 
     //could also have used pop to remove the first item of an array
@@ -76,32 +76,3 @@ removeNoProvince() {
 }
 
 
-/* this is waht source=csbs =
-    so maybe we just type in the states and then when they click on them all of the date is displayed in the top and then in the counties
-
-resAmerica = {
-    data: {
-        latest: {
-            confirmed: 124342,
-            deaths: 23444
-        },
-        locations: [
-            {
-                coordinates:
-                country:
-                country_code:
-                country_populations:
-                county: 
-                id: 0
-                last_updated: Date,
-                latest: {
-                    conrimed: 30765,
-                    deaths: 672;
-                },
-                province: the state
-            }
-        ]
-    }
-}
-
-*/

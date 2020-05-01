@@ -125,7 +125,8 @@ html {
   margin: auto;
   margin-top: 0;
   height: 100vh;
-  max-width: 1200px;
+  min-width: 1300px;
+  max-width: 1300px;
 }
 
 .grid-item {
